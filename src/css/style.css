@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.container-title h1 {
+  font-weight: bold;
+}
+
+.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button {
+  cursor: pointer;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  padding: 5px;
+  width: 5rem;
+  border: none;
+  background-color: #B4BEC9;
+  border-radius: 10px;
+}
+
+.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover {
+  background-color: #103778;
+  color: white;
+}
+
+.container-filters {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.container-filters .container-filters-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container-filters .container-filters-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container-filters .container-filters-search #buttonAdd {
+  width: 7rem;
+}
+.container-filters .container-filters-search input {
+  height: 1.8rem;
+  width: 15rem;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+  padding: 5px;
+  font-style: italic;
+  font-family: "Fira Sans", sans-serif;
+}
+
+.container-table {
+  padding: 5px;
+}
+.container-table table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+.container-table th,
+.container-table td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.footer .footer-pagination {
+  display: flex;
+  gap: 30px;
+}
+.footer #buttonPdf {
+  background-color: #FF7A48;
+}
+.footer #buttonPrevious,
+.footer #buttonNext {
+  background-color: #0593A2;
+  color: white;
+}
+.footer a {
+  color: black;
+  padding: 10px 18px;
+  text-decoration: none;
+}
+.footer a:hover:not(.active) {
+  background-color: #103778;
+  color: white;
+}
+.footer a:nth-child(1) {
+  font-weight: bold;
+}
+.footer a:nth-child(7) {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */

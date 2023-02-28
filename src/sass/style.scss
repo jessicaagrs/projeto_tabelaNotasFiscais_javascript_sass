@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
+
+$font: 'Fira Sans', sans-serif;
+$color1: #151F30;
+$color2: #103778;
+$color3: #0593A2;
+$color4: #FF7A48;
+$color5: #E3371E;
+$color6: #B4BEC9;
+
+body {
+    font-family: $font;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.container-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    h1 {
+        font-weight: bold;
+    }
+}
+
+.button {
+    cursor: pointer;
+    font-family: $font;
+    font-weight: 600;
+    padding: 5px;
+    width: 5rem;
+    border: none;
+    background-color: $color6;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: #103778;
+    color: white;
+}
+
+.container-filters {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    .container-filters-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+            @extend .button;
+        }
+
+        button:hover {
+            @extend .button;
+        }
+    }
+
+    .container-filters-search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+            @extend .button;
+        }
+
+        #buttonAdd {
+            width: 7rem;
+        }
+
+        input {
+            height: 1.8rem;
+            width: 15rem;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid black;
+            padding: 5px;
+            font-style: italic;
+            font-family: $font;
+        }
+    }
+}
+
+.container-table {
+    padding: 5px;
+
+    table {
+        min-width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    button {
+        @extend .button;
+    }
+
+    .footer-pagination {
+        display: flex;
+        gap: 30px;
+    }
+
+    #buttonPdf {
+        background-color: #FF7A48;
+    }
+
+    #buttonPrevious,
+    #buttonNext {
+        background-color: $color3;
+        color: white;
+    }
+
+    a {
+        color: black;
+        padding: 10px 18px;
+        text-decoration: none;
+    }
+
+    a:hover:not(.active) {
+        background-color: $color2;
+        color: white;
+    }
+
+    // a:nth-child(5) {
+    //     // background-color: $color3;
+    //     // color: white;
+    // }
+
+    a:nth-child(1) {
+        font-weight: bold;
+    }
+
+    a:nth-child(7) {
+        font-weight: bold;
+    }
+}

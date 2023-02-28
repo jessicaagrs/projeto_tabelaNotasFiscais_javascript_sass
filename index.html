@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Controle de Notas Fiscais</title>
+</head>
+
+<body>
+
+    <main class="container">
+        <div class="container-title">
+            <h1>Produtos</h1>
+        </div>
+        <div class="container-filters">
+            <div class="container-filters-buttons">
+                <label for="">Filtrar por:</label>
+                <button>Fornecedor</button>
+                <button>Data</button>
+                <button>Estoque</button>
+            </div>
+            <div class="container-filters-search">
+                <button>Atualizar</button>
+                <input type="search" name="" id="" placeholder="Digite aqui para pesquisar">
+                <button id="buttonAdd">+ Novo Produto</button>
+            </div>
+        </div>
+        <div class="container-table">
+            <table id="table">
+
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <button id="buttonPdf">Gerar PDF</button>
+        <div class="footer-pagination">
+            <button id="buttonPrevious">Anterior</button>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <button id="buttonNext">Próximo</button>
+        </div>
+    </footer>
+
+    <script src="src/js/index.js" type="module"></script>
+
+</body>
+
+</html>
