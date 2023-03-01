@@ -6,6 +6,3 @@
 //botão input pesquisa
 //botão novo produto
 //gerar pdf
-//botao anterior
-//botão proximo
-//paginação gerar conteúdo

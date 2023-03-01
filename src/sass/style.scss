@@ -122,40 +122,14 @@ body {
 
     .footer-pagination {
         display: flex;
-        gap: 30px;
     }
 
     #buttonPdf {
         background-color: #FF7A48;
     }
 
-    #buttonPrevious,
-    #buttonNext {
+    #buttonLoadData {
         background-color: $color3;
         color: white;
-    }
-
-    a {
-        color: black;
-        padding: 10px 18px;
-        text-decoration: none;
-    }
-
-    a:hover:not(.active) {
-        background-color: $color2;
-        color: white;
-    }
-
-    // a:nth-child(5) {
-    //     // background-color: $color3;
-    //     // color: white;
-    // }
-
-    a:nth-child(1) {
-        font-weight: bold;
-    }
-
-    a:nth-child(7) {
-        font-weight: bold;
     }
 }

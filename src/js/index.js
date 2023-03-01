@@ -1,8 +1,43 @@
 import { model } from "./model.js"
 
 const table = document.getElementById('table');
+const buttonLoadData = document.getElementById('buttonLoadData')
+let indiceUltimaLinhaCarregada = 100;
 
-function createTable(i, index) {
+function onLoadData() {
+    let newModel = model.slice(indiceUltimaLinhaCarregada, indiceUltimaLinhaCarregada + 100);
+
+    newModel.forEach(dado => {
+        let linha = table.insertRow(-1)
+        let celula1 = linha.insertCell(0)
+        let celula2 = linha.insertCell(1)
+        let celula3 = linha.insertCell(2)
+        let celula4 = linha.insertCell(3)
+        let celula5 = linha.insertCell(4)
+        let celula6 = linha.insertCell(5)
+        let celula7 = linha.insertCell(6)
+        let celula8 = linha.insertCell(7)
+        let celula9 = linha.insertCell(8)
+        let celula10 = linha.insertCell(9)
+        celula1.innerHTML = dado.product
+        celula2.innerHTML = dado.brand
+        celula3.innerHTML = dado.sku
+        celula4.innerHTML = formatDate(dado.date)
+        celula5.innerHTML = dado.initialIventory
+        celula6.innerHTML = dado.currentInventory
+        celula7.innerHTML = dado.nfe
+        celula8.innerHTML = dado.color
+        celula9.innerHTML = dado.categorie
+        celula10.innerHTML = dado.status
+    });
+
+    indiceUltimaLinhaCarregada += 100;
+}
+
+buttonLoadData.addEventListener('click', onLoadData)
+
+
+function onCreateTable() {
     let thead = document.createElement('thead')
     let trHead = document.createElement('tr')
     let thProduct = document.createElement('th')
@@ -41,7 +76,7 @@ function createTable(i, index) {
     trHead.appendChild(thead)
     table.append(thead)
 
-    for (i; i <= index && i < model.length; i++) {
+    for (let i = 0; i < 100; i++) {
         let trTbody = document.createElement('tr')
         let tdProduct = document.createElement('td')
         let tdBrand = document.createElement('td')
@@ -81,15 +116,8 @@ function createTable(i, index) {
 
 }
 
-window.addEventListener('load', createTable(0, 199));
+window.addEventListener('load', onCreateTable);
 
-
-//0, 199
-// 200, 399
-//400, 599
-//600, 799
-//800, 1000
-
-function formatDate(date){
+function formatDate(date) {
     return new Intl.DateTimeFormat('pt-BR').format(new Date(date));
 }
