@@ -9,6 +9,77 @@ body {
   font-family: "Fira Sans", sans-serif;
 }
 
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#fade,
+#modal-supplier {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-supplier {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+#modal-supplier .modal-supplier-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+#modal-supplier .modal-supplier-container select {
+  width: 50%;
+  height: 2rem;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 15px;
+}
+#modal-supplier .modal-supplier-container .modal-supplier-buttons {
+  display: flex;
+  gap: 280px;
+}
+#modal-supplier.hide,
+#fade.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button, #modal-supplier .modal-supplier-container .modal-supplier-buttons button {
+  cursor: pointer;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  padding: 5px;
+  width: 5rem;
+  border: none;
+  background-color: #B4BEC9;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover, #modal-supplier .modal-supplier-container .modal-supplier-buttons button:hover {
+  background-color: #103778;
+  color: white;
+}
+
 .container {
   min-height: 100vh;
 }
@@ -21,22 +92,6 @@ body {
 }
 .container-title h1 {
   font-weight: bold;
-}
-
-.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button {
-  cursor: pointer;
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 600;
-  padding: 5px;
-  width: 5rem;
-  border: none;
-  background-color: #B4BEC9;
-  border-radius: 10px;
-}
-
-.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover {
-  background-color: #103778;
-  color: white;
 }
 
 .container-filters {
@@ -90,30 +145,13 @@ body {
 }
 .footer .footer-pagination {
   display: flex;
-  gap: 30px;
 }
 .footer #buttonPdf {
   background-color: #FF7A48;
 }
-.footer #buttonPrevious,
-.footer #buttonNext {
+.footer #buttonLoadData {
   background-color: #0593A2;
   color: white;
-}
-.footer a {
-  color: black;
-  padding: 10px 18px;
-  text-decoration: none;
-}
-.footer a:hover:not(.active) {
-  background-color: #103778;
-  color: white;
-}
-.footer a:nth-child(1) {
-  font-weight: bold;
-}
-.footer a:nth-child(7) {
-  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

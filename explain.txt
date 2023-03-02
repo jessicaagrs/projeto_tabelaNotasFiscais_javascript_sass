@@ -1,8 +1,6 @@
-//filtro fornecedor
 //filtro data
 //filtro estoque
 //coluna estoque atual e status mudar de cor
-//botão atualizar
 //botão input pesquisa
-//botão novo produto
+//botão novo nfe
 //gerar pdf

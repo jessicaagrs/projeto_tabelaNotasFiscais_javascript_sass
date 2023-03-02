@@ -2,10 +2,18 @@ import { model } from "./model.js"
 
 const table = document.getElementById('table');
 const buttonLoadData = document.getElementById('buttonLoadData')
+const buttonSupplier = document.getElementById('buttonSupplier')
+const fadeModal = document.querySelector('#fade')
+const modalSupplier = document.querySelector('#modal-supplier')
+const buttonCloseModalSupplier = document.getElementById('buttonCloseModalSupplier')
+const buttonOkModalSupplier = document.getElementById('buttonOkModalSupplier')
+const buttonRefresh = document.getElementById('buttonRefresh')
+const select = document.querySelector('#select-modal-supplier')
 let indiceUltimaLinhaCarregada = 100;
+let sizeLoad = 100
 
 function onLoadData() {
-    let newModel = model.slice(indiceUltimaLinhaCarregada, indiceUltimaLinhaCarregada + 100);
+    let newModel = model.slice(indiceUltimaLinhaCarregada, indiceUltimaLinhaCarregada + sizeLoad);
 
     newModel.forEach(dado => {
         let linha = table.insertRow(-1)
@@ -53,7 +61,7 @@ function onCreateTable() {
     let tbody = document.createElement('tbody')
 
     thProduct.textContent = `Produto`
-    thBrand.textContent = `Marca`
+    thBrand.textContent = `Fornecedor`
     thSku.textContent = `SKU`
     thDate.textContent = `Data`
     thInitialInventory.textContent = `Estoque Inicial`
@@ -121,3 +129,84 @@ window.addEventListener('load', onCreateTable);
 function formatDate(date) {
     return new Intl.DateTimeFormat('pt-BR').format(new Date(date));
 }
+
+function onFilterSuppliersModel() {
+    const categoriasFiltradas = model.map(x =>
+        x.brand,
+    )
+    const categoriesUnique = categoriasFiltradas.filter((elem, index) => {
+        return categoriasFiltradas.indexOf(elem) === index;
+    });
+
+    categoriesUnique.sort((a, b) => {
+        if (b > a)
+            return -1
+        if (b < a)
+            return 1
+        return 0
+    })
+    return categoriesUnique
+}
+
+function onOpenModalSupplier() {
+    const suppliers = onFilterSuppliersModel()
+
+    suppliers.forEach(element => {
+        let option = document.createElement('option')
+        option.textContent = element
+        select.append(option)
+    });
+
+    fadeModal.classList.remove("hide")
+    modalSupplier.classList.remove("hide")
+}
+
+buttonSupplier.addEventListener('click', onOpenModalSupplier)
+
+function onCloseModal() {
+    fadeModal.classList.add("hide")
+    modalSupplier.classList.add("hide")
+    select.value = ""
+
+}
+
+buttonCloseModalSupplier.addEventListener('click', onCloseModal)
+
+buttonOkModalSupplier.addEventListener('click', (ev) => {
+    let option = ev.target.parentNode.parentNode.children[1].selectedOptions[0].value
+    onApplyFilterTable(option)
+})
+
+function onApplyFilterTable(option) {
+    let tr = table.getElementsByTagName("tbody")[0].rows;
+    let sizeModel = model.length
+    let sizeTr = tr.length
+    let remainingLoadingSize = sizeModel - sizeTr
+
+    sizeLoad = remainingLoadingSize
+    onLoadData()
+
+    if (!option) {
+        alert("Selecione um fornecedor para prosseguir.")
+        return
+    }
+
+    for (let i = 0; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            if (td.textContent.toLowerCase().includes(option.toLowerCase())) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+
+    fadeModal.classList.add("hide")
+    modalSupplier.classList.add("hide")
+    buttonLoadData.style.display = "none"
+}
+
+buttonRefresh.addEventListener('click', () => {
+    window.location.reload(true);
+})
