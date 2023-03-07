@@ -29,7 +29,8 @@ body {
 }
 
 #fade,
-#modal-supplier {
+#modal-supplier,
+#modal-dates {
     transition: 0.5s;
     opacity: 1;
     pointer-events: all;
@@ -63,6 +64,8 @@ body {
             font-size: 15px;
         }
 
+
+
         .modal-supplier-buttons {
             display: flex;
             gap: 280px;
@@ -74,11 +77,41 @@ body {
     }
 }
 
+#modal-dates {
+    @extend #modal-supplier;
+
+    #modal-dates.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .modal-date {
+        display: flex;
+        gap: 15px;
+
+        input {
+            width: 10rem;
+            height: 2rem;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 7px;
+            font-family: $font;
+            padding: 5px;
+        }
+
+    }
+
+    button {
+        @extend .button;
+    }
+}
+
 #modal-supplier.hide,
 #fade.hide {
     opacity: 0;
     pointer-events: none;
 }
+
 
 .button {
     cursor: pointer;

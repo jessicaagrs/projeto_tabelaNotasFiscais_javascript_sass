@@ -9,6 +9,9 @@ const buttonCloseModalSupplier = document.getElementById('buttonCloseModalSuppli
 const buttonOkModalSupplier = document.getElementById('buttonOkModalSupplier')
 const buttonRefresh = document.getElementById('buttonRefresh')
 const select = document.querySelector('#select-modal-supplier')
+const buttonDate = document.getElementById('buttonDate')
+const modalDate = document.querySelector('#modal-dates')
+const buttonCloseModalDate = document.querySelector('#buttonCloseModalDate')
 let indiceUltimaLinhaCarregada = 100;
 let sizeLoad = 100
 
@@ -163,21 +166,21 @@ function onOpenModalSupplier() {
 
 buttonSupplier.addEventListener('click', onOpenModalSupplier)
 
-function onCloseModal() {
+function onCloseModalSupplier() {
     fadeModal.classList.add("hide")
     modalSupplier.classList.add("hide")
     select.value = ""
 
 }
 
-buttonCloseModalSupplier.addEventListener('click', onCloseModal)
+buttonCloseModalSupplier.addEventListener('click', onCloseModalSupplier)
 
 buttonOkModalSupplier.addEventListener('click', (ev) => {
     let option = ev.target.parentNode.parentNode.children[1].selectedOptions[0].value
-    onApplyFilterTable(option)
+    onApplyFilterTableSupplier(option)
 })
 
-function onApplyFilterTable(option) {
+function onApplyFilterTableSupplier(option) {
     let tr = table.getElementsByTagName("tbody")[0].rows;
     let sizeModel = model.length
     let sizeTr = tr.length
@@ -210,3 +213,19 @@ function onApplyFilterTable(option) {
 buttonRefresh.addEventListener('click', () => {
     window.location.reload(true);
 })
+
+function onOpenModalDate(oEvent){
+    fadeModal.classList.remove("hide")
+    modalDate.classList.remove("hide")
+}
+
+buttonDate.addEventListener('click', onOpenModalDate)
+
+function onCloseModalDate() {
+    fadeModal.classList.add("hide")
+    modalDate.classList.add("hide")
+    select.value = ""
+
+}
+
+buttonCloseModalDate.addEventListener('click', onCloseModalDate)

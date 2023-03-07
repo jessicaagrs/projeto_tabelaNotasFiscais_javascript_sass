@@ -11,16 +11,30 @@
 
 <body>
 
-    <div id="fade" class="hide"></div>
-    <div id="modal-supplier" class="hide">
-        <div class="modal-supplier-container">
-            <h2>Selecione um fornecedor:</h2>
-            <select name="select-modal-supplier" id="select-modal-supplier" autofocus="true">
-                <option value="" selected></option>
-            </select>
-            <div class="modal-supplier-buttons">
-                <button id="buttonCloseModalSupplier">Fechar</button>
-                <button id="buttonOkModalSupplier">Ok</button>
+    <div id="fade" class="hide">
+        <div id="modal-supplier" class="hide">
+            <div class="modal-supplier-container">
+                <h2>Selecione um fornecedor:</h2>
+                <select name="select-modal-supplier" id="select-modal-supplier" autofocus="true">
+                    <option value="" selected></option>
+                </select>
+                <div class="modal-supplier-buttons">
+                    <button id="buttonCloseModalSupplier">Fechar</button>
+                    <button id="buttonOkModalSupplier">Ok</button>
+                </div>
+            </div>
+        </div>
+        <div id="modal-dates" class="hide">
+            <div class="modal-supplier-container">
+                <h2>Selecione um período:</h2>
+                <div class="modal-date">
+                    <input type="date" name="date" id="date">
+                    <input type="date" name="date" id="date">
+                </div>
+                <div class="modal-supplier-buttons">
+                    <button id="buttonCloseModalDate">Fechar</button>
+                    <button id="">Ok</button>
+                </div>
             </div>
         </div>
     </div>
@@ -33,7 +47,7 @@
             <div class="container-filters-buttons">
                 <label for="">Filtrar por:</label>
                 <button id="buttonSupplier">Fornecedor</button>
-                <button>Data</button>
+                <button id="buttonDate">Data</button>
                 <button>Estoque</button>
             </div>
             <div class="container-filters-search">
