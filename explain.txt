@@ -1,6 +1,5 @@
-//filtro data -> função de ok, limpar inputs
 //filtro estoque
-//coluna estoque atual e status mudar de cor
 //botão input pesquisa
 //botão novo nfe
 //gerar pdf
+//ordenar tabela pelo mais recente

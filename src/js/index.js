@@ -12,6 +12,8 @@ const select = document.querySelector('#select-modal-supplier')
 const buttonDate = document.getElementById('buttonDate')
 const modalDate = document.querySelector('#modal-dates')
 const buttonCloseModalDate = document.querySelector('#buttonCloseModalDate')
+const buttonOkModalDate = document.querySelector('#buttonOkModalDate')
+
 let indiceUltimaLinhaCarregada = 100;
 let sizeLoad = 100
 
@@ -41,6 +43,9 @@ function onLoadData() {
         celula9.innerHTML = dado.categorie
         celula10.innerHTML = dado.status
     });
+
+    colorCurrentInventory()
+    colorStatusProduct()
 
     indiceUltimaLinhaCarregada += 100;
 }
@@ -123,8 +128,10 @@ function onCreateTable() {
         tbody.appendChild(trTbody)
     }
 
-    table.append(tbody)
 
+    table.append(tbody)
+    colorCurrentInventory()
+    colorStatusProduct()
 }
 
 window.addEventListener('load', onCreateTable);
@@ -214,7 +221,7 @@ buttonRefresh.addEventListener('click', () => {
     window.location.reload(true);
 })
 
-function onOpenModalDate(oEvent){
+function onOpenModalDate(oEvent) {
     fadeModal.classList.remove("hide")
     modalDate.classList.remove("hide")
 }
@@ -229,3 +236,89 @@ function onCloseModalDate() {
 }
 
 buttonCloseModalDate.addEventListener('click', onCloseModalDate)
+
+function onApplyFilterTableDate() {
+    let dateBegin = new Date(document.getElementById('dateBegin').value)
+    let dateEnd = new Date(document.getElementById('dateEnd').value)
+    let tr = table.getElementsByTagName("tbody")[0].rows;
+
+    for (let i = 0; i < tr.length; i++) {
+        let td = new Date(formatInfoRowForDate(tr[i].getElementsByTagName("td")[3].textContent));
+        if (td >= dateBegin && td <= dateEnd) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+
+    }
+
+    console.log(table.getElementsByTagName("tbody")[0].rows);
+
+    fadeModal.classList.add("hide")
+    modalDate.classList.add("hide")
+    buttonLoadData.style.display = "none"
+}
+
+buttonOkModalDate.addEventListener('click', onApplyFilterTableDate)
+
+function formatInfoRowForDate(rowDate) {
+    let parts = rowDate.split("/");
+    let year = parseInt(parts[2]);
+    let month = parseInt(parts[1]) - 1;
+    let day = parseInt(parts[0]);
+    let date = new Date(year, month, day);
+    return date
+}
+
+function colorCurrentInventory() {
+    let tr = table.getElementsByTagName("tbody")[0].rows;
+
+    for (let i = 0; i < tr.length; i++) {
+        let initialIventory = Number(tr[i].getElementsByTagName("td")[4].textContent);
+        let currentInventory = Number(tr[i].getElementsByTagName("td")[5].textContent);
+
+        if (initialIventory < currentInventory) {
+            tr[i].getElementsByTagName("td")[5].style.color = "#D90D1E"
+            tr[i].getElementsByTagName("td")[5].style.fontWeight = "900"
+        } else {
+            tr[i].getElementsByTagName("td")[5].style.color = "#135EF2"
+            tr[i].getElementsByTagName("td")[5].style.fontWeight = "900"
+        }
+    }
+
+}
+
+function colorStatusProduct() {
+    let tr = table.getElementsByTagName("tbody")[0].rows;
+
+    for (let i = 0; i < tr.length; i++) {
+        let status = tr[i].getElementsByTagName("td")[9].textContent;
+
+        if (status == "ativo") {
+            tr[i].getElementsByTagName("td")[9].style.color = "#217D3B"
+            tr[i].getElementsByTagName("td")[9].style.fontWeight = "900"
+        } else {
+            tr[i].getElementsByTagName("td")[9].style.color = "#D90D1E"
+            tr[i].getElementsByTagName("td")[9].style.fontWeight = "900"
+        }
+    }
+}
+
+/*
+function applyDateFilter() {
+  const startDate = new Date(startDateInput.value);
+  const endDate = new Date(endDateInput.value);
+
+  const rows = document.querySelectorAll('table tbody tr');
+
+  rows.forEach(row => {
+    const date = new Date(row.querySelector('td.date').textContent);
+
+    if (date >= startDate && date <= endDate) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+*/
