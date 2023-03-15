@@ -13,6 +13,12 @@ const buttonDate = document.getElementById('buttonDate')
 const modalDate = document.querySelector('#modal-dates')
 const buttonCloseModalDate = document.querySelector('#buttonCloseModalDate')
 const buttonOkModalDate = document.querySelector('#buttonOkModalDate')
+const buttonInventory = document.getElementById('buttonInventory')
+const modalInventory = document.querySelector('#modal-inventory')
+const buttonCloseModalInventory = document.querySelector('#buttonCloseModalInventory')
+const buttonOkModalInventory = document.querySelector('#buttonOkModalInventory')
+const inputRadios = document.querySelectorAll('input[type=radio]')
+
 
 let indiceUltimaLinhaCarregada = 100;
 let sizeLoad = 100
@@ -231,16 +237,27 @@ buttonDate.addEventListener('click', onOpenModalDate)
 function onCloseModalDate() {
     fadeModal.classList.add("hide")
     modalDate.classList.add("hide")
-    select.value = ""
-
+    document.getElementById('dateBegin').value = ""
+    document.getElementById('dateEnd').value = ""
 }
 
 buttonCloseModalDate.addEventListener('click', onCloseModalDate)
 
 function onApplyFilterTableDate() {
+    let sizeModel = model.length
     let dateBegin = new Date(document.getElementById('dateBegin').value)
     let dateEnd = new Date(document.getElementById('dateEnd').value)
     let tr = table.getElementsByTagName("tbody")[0].rows;
+    let sizeTr = tr.length
+    let remainingLoadingSize = sizeModel - sizeTr
+
+    if(JSON.stringify(dateBegin) == "null" || JSON.stringify(dateEnd) == "null"){
+        alert("Selecione uma data inicial e final.")
+        return
+    }
+
+    sizeLoad = remainingLoadingSize
+    onLoadData()
 
     for (let i = 0; i < tr.length; i++) {
         let td = new Date(formatInfoRowForDate(tr[i].getElementsByTagName("td")[3].textContent));
@@ -251,8 +268,6 @@ function onApplyFilterTableDate() {
         }
 
     }
-
-    console.log(table.getElementsByTagName("tbody")[0].rows);
 
     fadeModal.classList.add("hide")
     modalDate.classList.add("hide")
@@ -304,21 +319,69 @@ function colorStatusProduct() {
     }
 }
 
-/*
-function applyDateFilter() {
-  const startDate = new Date(startDateInput.value);
-  const endDate = new Date(endDateInput.value);
-
-  const rows = document.querySelectorAll('table tbody tr');
-
-  rows.forEach(row => {
-    const date = new Date(row.querySelector('td.date').textContent);
-
-    if (date >= startDate && date <= endDate) {
-      row.style.display = '';
-    } else {
-      row.style.display = 'none';
-    }
-  });
+function onOpenModalInventory(oEvent) {
+    fadeModal.classList.remove("hide")
+    modalInventory.classList.remove("hide")
 }
-*/
+
+buttonInventory.addEventListener('click', onOpenModalInventory)
+
+function onCloseModalInventory() {
+    fadeModal.classList.add("hide")
+    modalInventory.classList.add("hide")
+
+}
+
+buttonCloseModalInventory.addEventListener('click', onCloseModalInventory)
+
+inputRadios.forEach(radio => {
+    radio.addEventListener("click", () => {
+        inputRadios.forEach(otherRadio => {
+            if (otherRadio !== radio) {
+                otherRadio.checked = false;
+            }
+        })
+    })
+})
+
+function onApplyFilterTableInventory(oEvent) {
+    let sizeModel = model.length
+    let modalRadios = Array.from(oEvent.currentTarget.parentNode.parentNode.children[1].children)
+    let tr = table.getElementsByTagName("tbody")[0].rows;
+    let filterOption
+    let sizeTr = tr.length
+    let remainingLoadingSize = sizeModel - sizeTr
+
+    sizeLoad = remainingLoadingSize
+    onLoadData()
+
+    let noRadioMarked = modalRadios.every(x => x.children[0].checked == false)
+
+    if (noRadioMarked) {
+        alert("Selecione uma opção para continuar")
+        return
+    }
+
+    modalRadios.forEach(radio => {
+        if (radio.children[0].checked) {
+            filterOption = radio.children[1].textContent
+        }
+    })
+
+    for (let i = 0; i < tr.length; i++) {
+        const td = tr[i].querySelector('td:nth-child(6)');
+        const fontColor = window.getComputedStyle(td).getPropertyValue('color');
+        const isAvailable = fontColor === 'rgb(19, 94, 242)';
+        tr[i].style.display = (filterOption === "Estoque com mercadorias disponíveis" && isAvailable) ||
+            (filterOption !== "Estoque com mercadorias disponíveis" && !isAvailable)
+            ? "" : "none";
+    }
+
+    fadeModal.classList.add("hide")
+    modalInventory.classList.add("hide")
+    buttonLoadData.style.display = "none"
+
+}
+
+buttonOkModalInventory.addEventListener('click', onApplyFilterTableInventory)
+

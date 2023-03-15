@@ -1,5 +1,3 @@
-//filtro estoque
 //botão input pesquisa
 //botão novo nfe
 //gerar pdf
-//ordenar tabela pelo mais recente

@@ -21,13 +21,14 @@ body {
 
 #fade,
 #modal-supplier,
-#modal-dates {
+#modal-dates,
+#modal-inventory {
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
 }
 
-#modal-supplier, #modal-dates {
+#modal-supplier, #modal-inventory, #modal-dates {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -39,13 +40,13 @@ body {
   border-radius: 0.5rem;
   z-index: 10;
 }
-#modal-supplier .modal-supplier-container, #modal-dates .modal-supplier-container {
+#modal-supplier .modal-supplier-container, #modal-inventory .modal-supplier-container, #modal-dates .modal-supplier-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 }
-#modal-supplier .modal-supplier-container select, #modal-dates .modal-supplier-container select {
+#modal-supplier .modal-supplier-container select, #modal-inventory .modal-supplier-container select, #modal-dates .modal-supplier-container select {
   width: 50%;
   height: 2rem;
   outline: none;
@@ -54,7 +55,7 @@ body {
   font-family: "Fira Sans", sans-serif;
   font-size: 15px;
 }
-#modal-supplier .modal-supplier-container .modal-supplier-buttons, #modal-dates .modal-supplier-container .modal-supplier-buttons {
+#modal-supplier .modal-supplier-container .modal-supplier-buttons, #modal-inventory .modal-supplier-container .modal-supplier-buttons, #modal-dates .modal-supplier-container .modal-supplier-buttons {
   display: flex;
   gap: 280px;
 }
@@ -75,13 +76,29 @@ body {
   font-family: "Fira Sans", sans-serif;
   padding: 5px;
 }
-#modal-supplier.hide, .hide#modal-dates,
+#modal-inventory #modal-inventory.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+#modal-inventory .modal-radios {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+#modal-inventory .modal-radios div input {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 7px;
+  font-family: "Fira Sans", sans-serif;
+  padding: 5px;
+}
+#modal-supplier.hide, .hide#modal-dates, .hide#modal-inventory,
 #fade.hide {
   opacity: 0;
   pointer-events: none;
 }
 
-.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button, #modal-supplier .modal-supplier-container .modal-supplier-buttons button, #modal-dates .modal-supplier-container .modal-supplier-buttons button, #modal-dates button {
+.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button, #modal-supplier .modal-supplier-container .modal-supplier-buttons button, #modal-dates .modal-supplier-container .modal-supplier-buttons button, #modal-dates button, #modal-inventory .modal-supplier-container .modal-supplier-buttons button, #modal-inventory button {
   cursor: pointer;
   font-family: "Fira Sans", sans-serif;
   font-weight: 600;
@@ -93,7 +110,7 @@ body {
   transition: 0.5s;
 }
 
-.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover, #modal-supplier .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates button:hover {
+.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover, #modal-supplier .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates button:hover, #modal-inventory .modal-supplier-container .modal-supplier-buttons button:hover, #modal-inventory button:hover {
   background-color: #103778;
   color: white;
 }

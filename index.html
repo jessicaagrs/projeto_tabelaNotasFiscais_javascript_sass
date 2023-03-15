@@ -38,6 +38,26 @@
             </div>
         </div>
     </div>
+    <div id="modal-inventory" class="hide">
+        <div class="modal-supplier-container">
+            <h2>Selecione o tipo de estoque:</h2>
+            <div >
+                <div class="modal-radios">
+                    <input type="radio" name="colorInventory">
+                    <label for="colorInventory">Estoque com mercadorias disponíveis</label>
+                </div>
+                <div class="modal-radios">
+                    <input type="radio" name="colorInventory">
+                    <label for="colorInventory">Estoque com mercadorias faltantes</label>
+                </div>
+            </div>
+            <div class="modal-supplier-buttons">
+                <button id="buttonCloseModalInventory">Fechar</button>
+                <button id="buttonOkModalInventory">Ok</button>
+            </div>
+        </div>
+    </div>
+    </div>
 
     <main class="container">
         <div class="container-title">
@@ -48,7 +68,7 @@
                 <label for="">Filtrar por:</label>
                 <button id="buttonSupplier">Fornecedor</button>
                 <button id="buttonDate">Data</button>
-                <button>Estoque</button>
+                <button id="buttonInventory">Estoque</button>
             </div>
             <div class="container-filters-search">
                 <button id="buttonRefresh">Recarregar</button>
