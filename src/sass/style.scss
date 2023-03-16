@@ -31,7 +31,8 @@ body {
 #fade,
 #modal-supplier,
 #modal-dates,
-#modal-inventory {
+#modal-inventory,
+#modal-newNfe {
     transition: 0.5s;
     opacity: 1;
     pointer-events: all;
@@ -133,6 +134,63 @@ body {
     button {
         @extend .button;
     }
+}
+
+#modal-newNfe {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+
+    #modal-newNfe.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .bloco {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        gap: 5px;
+
+        input {
+            width: 10rem;
+            height: 1.5rem;
+            font-family: $font;
+            border-radius: 3px;
+            border: 1px solid black;
+            outline: none;
+            text-align: center;
+        }
+
+        select {
+            width: 10rem;
+            height: 1.5rem;
+            font-family: $font;
+            font-size: 15px;
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+
+        button {
+            @extend .button;
+        }
+
+    }
+
+    .radios {
+        display: flex;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    
 }
 
 #modal-supplier.hide,

@@ -22,7 +22,8 @@ body {
 #fade,
 #modal-supplier,
 #modal-dates,
-#modal-inventory {
+#modal-inventory,
+#modal-newNfe {
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
@@ -92,13 +93,58 @@ body {
   font-family: "Fira Sans", sans-serif;
   padding: 5px;
 }
+#modal-newNfe {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+#modal-newNfe #modal-newNfe.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+#modal-newNfe .bloco {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 5px;
+}
+#modal-newNfe .bloco input {
+  width: 10rem;
+  height: 1.5rem;
+  font-family: "Fira Sans", sans-serif;
+  border-radius: 3px;
+  border: 1px solid black;
+  outline: none;
+  text-align: center;
+}
+#modal-newNfe .bloco select {
+  width: 10rem;
+  height: 1.5rem;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+#modal-newNfe .radios {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+}
+
 #modal-supplier.hide, .hide#modal-dates, .hide#modal-inventory,
 #fade.hide {
   opacity: 0;
   pointer-events: none;
 }
 
-.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button, #modal-supplier .modal-supplier-container .modal-supplier-buttons button, #modal-dates .modal-supplier-container .modal-supplier-buttons button, #modal-dates button, #modal-inventory .modal-supplier-container .modal-supplier-buttons button, #modal-inventory button {
+.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button, #modal-supplier .modal-supplier-container .modal-supplier-buttons button, #modal-dates .modal-supplier-container .modal-supplier-buttons button, #modal-dates button, #modal-inventory .modal-supplier-container .modal-supplier-buttons button, #modal-inventory button, #modal-newNfe .bloco button {
   cursor: pointer;
   font-family: "Fira Sans", sans-serif;
   font-weight: 600;
@@ -110,7 +156,7 @@ body {
   transition: 0.5s;
 }
 
-.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover, #modal-supplier .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates button:hover, #modal-inventory .modal-supplier-container .modal-supplier-buttons button:hover, #modal-inventory button:hover {
+.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover, #modal-supplier .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates button:hover, #modal-inventory .modal-supplier-container .modal-supplier-buttons button:hover, #modal-inventory button:hover, #modal-newNfe .bloco button:hover {
   background-color: #103778;
   color: white;
 }

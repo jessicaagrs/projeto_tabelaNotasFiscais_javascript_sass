@@ -37,27 +37,88 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="modal-inventory" class="hide">
-        <div class="modal-supplier-container">
-            <h2>Selecione o tipo de estoque:</h2>
-            <div >
-                <div class="modal-radios">
-                    <input type="radio" name="colorInventory">
-                    <label for="colorInventory">Estoque com mercadorias disponíveis</label>
+        <div id="modal-inventory" class="hide">
+            <div class="modal-supplier-container">
+                <h2>Selecione o tipo de estoque:</h2>
+                <div>
+                    <div class="modal-radios">
+                        <input type="radio" name="colorInventory">
+                        <label for="colorInventory">Estoque com mercadorias disponíveis</label>
+                    </div>
+                    <div class="modal-radios">
+                        <input type="radio" name="colorInventory">
+                        <label for="colorInventory">Estoque com mercadorias faltantes</label>
+                    </div>
                 </div>
-                <div class="modal-radios">
-                    <input type="radio" name="colorInventory">
-                    <label for="colorInventory">Estoque com mercadorias faltantes</label>
+                <div class="modal-supplier-buttons">
+                    <button id="buttonCloseModalInventory">Fechar</button>
+                    <button id="buttonOkModalInventory">Ok</button>
                 </div>
-            </div>
-            <div class="modal-supplier-buttons">
-                <button id="buttonCloseModalInventory">Fechar</button>
-                <button id="buttonOkModalInventory">Ok</button>
             </div>
         </div>
+        <div id="modal-newNfe" class="hide">
+            <div class="modal-supplier-container">
+                <h2>Incluir nova Nfe de Entrada</h2>
+                <div class="bloco">
+                    <div>
+                        <label >Produto:</label>
+                        <input type="text" name="bloco1">
+                    </div>
+                    <div>
+                        <label >Fornecedor:</label>
+                        <input type="text" name="bloco1">
+                    </div>
+                    <div>
+                        <label >SKU:</label>
+                        <input type="text" name="bloco1">
+                    </div>
+                </div>
+                <div class="bloco">
+                    <div>
+                        <label >Data de entrada:</label>
+                        <input type="date" name="bloco2">
+                    </div>
+                    <div>
+                        <label >Estoque inicial:</label>
+                        <input type="text" name="bloco2">
+                    </div>
+                    <div>
+                        <label >Estoque atual:</label>
+                        <input type="text" name="bloco2">
+                    </div>
+                </div>
+                <div class="bloco">
+                    <div>
+                        <label >Número da nota fiscal:</label>
+                        <input type="text" name="bloco3">
+                    </div>
+                    <div>
+                        <label>Cor:</label>
+                        <select name="bloco3">
+                            <option value="">Teste</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Categoria:</label>
+                        <select name="bloco3">
+                            <option value="">Teste</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="radios">
+                    <input type="radio" name="status" id="ativo">Ativo
+                    <input type="radio" name="status" id="inativo">Inativo
+                </div>
+                <div class="bloco">
+                    <button id="buttonCloseModalNewNfe">Fechar</button>
+                    <button id="buttonOkModalNewNfe">Ok</button>
+                </div>
+            </div>
+        </div>
+
     </div>
-    </div>
+
+
 
     <main class="container">
         <div class="container-title">
@@ -65,14 +126,14 @@
         </div>
         <div class="container-filters">
             <div class="container-filters-buttons">
-                <label for="">Filtrar por:</label>
+                <label >Filtrar por:</label>
                 <button id="buttonSupplier">Fornecedor</button>
                 <button id="buttonDate">Data</button>
                 <button id="buttonInventory">Estoque</button>
             </div>
             <div class="container-filters-search">
                 <button id="buttonRefresh">Recarregar</button>
-                <input type="search" name="" id="" placeholder="Pesquisar por produto">
+                <input type="search" name="" id="inputSearch" placeholder="Pesquisar por produto">
                 <button id="buttonAdd">+ Nova Nfe</button>
             </div>
         </div>

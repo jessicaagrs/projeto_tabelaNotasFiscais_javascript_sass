@@ -18,7 +18,11 @@ const modalInventory = document.querySelector('#modal-inventory')
 const buttonCloseModalInventory = document.querySelector('#buttonCloseModalInventory')
 const buttonOkModalInventory = document.querySelector('#buttonOkModalInventory')
 const inputRadios = document.querySelectorAll('input[type=radio]')
-
+const inputSearch = document.getElementById('inputSearch')
+const buttonCloseModalNewNfe = document.querySelector('#buttonCloseModalNewNfe')
+const buttonOkModalNewNfe = document.getElementById('buttonOkModalNewNfe')
+const buttonAddNfe = document.getElementById('buttonAdd')
+const modalNfe = document.querySelector('#modal-newNfe')
 
 let indiceUltimaLinhaCarregada = 100;
 let sizeLoad = 100
@@ -251,7 +255,7 @@ function onApplyFilterTableDate() {
     let sizeTr = tr.length
     let remainingLoadingSize = sizeModel - sizeTr
 
-    if(JSON.stringify(dateBegin) == "null" || JSON.stringify(dateEnd) == "null"){
+    if (JSON.stringify(dateBegin) == "null" || JSON.stringify(dateEnd) == "null") {
         alert("Selecione uma data inicial e final.")
         return
     }
@@ -384,4 +388,88 @@ function onApplyFilterTableInventory(oEvent) {
 }
 
 buttonOkModalInventory.addEventListener('click', onApplyFilterTableInventory)
+
+inputSearch.addEventListener('keyup', (oEvent) => {
+    let tr = table.getElementsByTagName("tbody")[0].rows;
+    let query = oEvent.currentTarget.value.toLowerCase()
+    let sizeModel = model.length
+    let sizeTr = tr.length
+    let remainingLoadingSize = sizeModel - sizeTr
+
+    sizeLoad = remainingLoadingSize
+    onLoadData()
+
+    query == "" ? window.location.reload(true) : buttonLoadData.style.display = "none"
+
+    for (let i = 0; i < tr.length; i++) {
+        let product = tr[i].getElementsByTagName("td")[0].textContent.toLowerCase();
+        if (product.includes(query)) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+})
+
+inputSearch.addEventListener("search", () => {
+    window.location.reload(true)
+})
+
+function onOpenModalNewNfe(oEvent) {
+    fadeModal.classList.remove("hide")
+    modalNfe.classList.remove("hide")
+}
+
+buttonAddNfe.addEventListener('click', onOpenModalNewNfe)
+
+function onCloseModalNewNfe() {
+    fadeModal.classList.add("hide")
+    modalNfe.classList.add("hide")
+
+}
+
+buttonCloseModalNewNfe.addEventListener('click', onCloseModalNewNfe)
+
+function addNewNfe(oEvent) {
+    let bloco1 = document.getElementsByName('bloco1')
+    let bloco2 = document.getElementsByName('bloco2')
+    let bloco3 = document.getElementsByName('bloco3')
+    let status = document.getElementsByName('status')
+    let statusSelected
+    debugger
+
+    status.forEach(element => {
+        if (element.checked == true) {
+            statusSelected = element.id
+            return statusSelected
+        }
+    })
+
+    let newNfe = {
+        "produto": bloco1[0].value,
+        "fornecedor": bloco1[1].value,
+        "sku": bloco1[2].value,
+        "dataEntrada": bloco2[0].value,
+        "estoqueInicial": bloco2[1].value,
+        "estoqueAtual": bloco2[2].value,
+        "numNfe": bloco3[0].value,
+        "status": statusSelected
+
+    }
+
+}
+
+buttonOkModalNewNfe.addEventListener('click', addNewNfe)
+
+function createOptionsSelectColor() {
+    const colors = [...new Set(model.map(item => item.color))];
+
+}
+
+function createOptionsSelectCategorie() {
+    const categorie = [...new Set(model.map(item => item.categorie))];
+
+}
+
+
 
