@@ -1,5 +1,1 @@
-//botão novo nfe
--mostrar as opções de Cor
--mostrar opções de categoria
-
 //gerar pdf

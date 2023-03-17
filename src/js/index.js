@@ -142,6 +142,8 @@ function onCreateTable() {
     table.append(tbody)
     colorCurrentInventory()
     colorStatusProduct()
+    createOptionsSelectColor()
+    createOptionsSelectCategorie()
 }
 
 window.addEventListener('load', onCreateTable);
@@ -431,31 +433,22 @@ function onCloseModalNewNfe() {
 buttonCloseModalNewNfe.addEventListener('click', onCloseModalNewNfe)
 
 function addNewNfe(oEvent) {
-    let bloco1 = document.getElementsByName('bloco1')
-    let bloco2 = document.getElementsByName('bloco2')
-    let bloco3 = document.getElementsByName('bloco3')
-    let status = document.getElementsByName('status')
-    let statusSelected
+    let newNfeInputs = Array.from(document.getElementsByName('newNfeInput'))
+    newNfeInputs.reverse()
+    let row = table.insertRow(0)
     debugger
 
-    status.forEach(element => {
-        if (element.checked == true) {
-            statusSelected = element.id
-            return statusSelected
-        }
-    })
-
-    let newNfe = {
-        "produto": bloco1[0].value,
-        "fornecedor": bloco1[1].value,
-        "sku": bloco1[2].value,
-        "dataEntrada": bloco2[0].value,
-        "estoqueInicial": bloco2[1].value,
-        "estoqueAtual": bloco2[2].value,
-        "numNfe": bloco3[0].value,
-        "status": statusSelected
-
+    for (let i = 0; i < newNfeInputs.length; i++) {
+        let cell = row.insertCell(0)
+        cell.textContent = newNfeInputs[i].id === "dateEntry" ? formatDate(newNfeInputs[i].value) : newNfeInputs[i].value;
+        cell.style.backgroundColor = "#DBF227"
     }
+
+    table.prepend(row)
+    colorCurrentInventory()
+    colorStatusProduct()
+    fadeModal.classList.add("hide")
+    modalNfe.classList.add("hide")
 
 }
 
@@ -463,11 +456,25 @@ buttonOkModalNewNfe.addEventListener('click', addNewNfe)
 
 function createOptionsSelectColor() {
     const colors = [...new Set(model.map(item => item.color))];
+    const selectColor = document.getElementById('selectColor')
+
+    colors.forEach(element => {
+        let option = document.createElement('option')
+        option.textContent = element
+        selectColor.appendChild(option)
+    });
 
 }
 
 function createOptionsSelectCategorie() {
     const categorie = [...new Set(model.map(item => item.categorie))];
+    const selectCategorie = document.getElementById('selectCategorie')
+
+    categorie.forEach(element => {
+        let option = document.createElement('option')
+        option.textContent = element
+        selectCategorie.appendChild(option)
+    });
 
 }
 

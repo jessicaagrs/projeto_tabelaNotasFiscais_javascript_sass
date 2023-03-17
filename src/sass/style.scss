@@ -137,61 +137,63 @@ body {
 }
 
 #modal-newNfe {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px;
-    max-width: 90%;
-    background-color: #fff;
-    padding: 1.2rem;
-    border-radius: 0.5rem;
-    z-index: 10;
+    @extend #modal-supplier;
+    min-height: 500px;
+    min-width: 800px !important;
 
     #modal-newNfe.hide {
         opacity: 0;
         pointer-events: none;
     }
 
-    .bloco {
+    .modal-supplier-container {
+        .modal-blocos {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+
+            .bloco {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                input {
+                    width: 18rem;
+                    outline: none;
+                    border: 1px solid black;
+                    height: 1.8rem;
+                    text-align: center;
+                    font-family: $font;
+                    border-radius: 5px;
+                }
+
+                select {
+                    width: 18rem;
+                    outline: none;
+                    border: 1px solid black;
+                    height: 1.8rem;
+                    font-family: $font;
+                    border-radius: 5px;
+                }
+
+            }
+        }
+    }
+
+    .modal-newnfe-buttons {
         display: flex;
         justify-content: space-between;
-        margin-top: 40px;
-        gap: 5px;
-
-        input {
-            width: 10rem;
-            height: 1.5rem;
-            font-family: $font;
-            border-radius: 3px;
-            border: 1px solid black;
-            outline: none;
-            text-align: center;
-        }
-
-        select {
-            width: 10rem;
-            height: 1.5rem;
-            font-family: $font;
-            font-size: 15px;
-            border-radius: 3px;
-            border: 1px solid black;
-        }
+        margin-top: 20px;
 
         button {
             @extend .button;
         }
-
     }
 
-    .radios {
-        display: flex;
-        margin-top: 20px;
-        gap: 10px;
-    }
-
-    
 }
+
+
+
 
 #modal-supplier.hide,
 #fade.hide {

@@ -11,114 +11,90 @@
 
 <body>
 
-    <div id="fade" class="hide">
-        <div id="modal-supplier" class="hide">
-            <div class="modal-supplier-container">
-                <h2>Selecione um fornecedor:</h2>
-                <select name="select-modal-supplier" id="select-modal-supplier" autofocus="true">
-                    <option value="" selected></option>
-                </select>
-                <div class="modal-supplier-buttons">
-                    <button id="buttonCloseModalSupplier">Fechar</button>
-                    <button id="buttonOkModalSupplier">Ok</button>
-                </div>
+    <div id="fade" class="hide"></div>
+    <div id="modal-supplier" class="hide">
+        <div class="modal-supplier-container">
+            <h2>Selecione um fornecedor:</h2>
+            <select name="select-modal-supplier" id="select-modal-supplier" autofocus="true">
+                <option value="" selected></option>
+            </select>
+            <div class="modal-supplier-buttons">
+                <button id="buttonCloseModalSupplier">Fechar</button>
+                <button id="buttonOkModalSupplier">Ok</button>
             </div>
         </div>
-        <div id="modal-dates" class="hide">
-            <div class="modal-supplier-container">
-                <h2>Selecione um período:</h2>
-                <div class="modal-date">
-                    <input type="date" name="date" id="dateBegin">
-                    <input type="date" name="date" id="dateEnd">
-                </div>
-                <div class="modal-supplier-buttons">
-                    <button id="buttonCloseModalDate">Fechar</button>
-                    <button id="buttonOkModalDate">Ok</button>
-                </div>
+    </div>
+    <div id="modal-dates" class="hide">
+        <div class="modal-supplier-container">
+            <h2>Selecione um período:</h2>
+            <div class="modal-date">
+                <input type="date" name="date" id="dateBegin">
+                <input type="date" name="date" id="dateEnd">
+            </div>
+            <div class="modal-supplier-buttons">
+                <button id="buttonCloseModalDate">Fechar</button>
+                <button id="buttonOkModalDate">Ok</button>
             </div>
         </div>
-        <div id="modal-inventory" class="hide">
-            <div class="modal-supplier-container">
-                <h2>Selecione o tipo de estoque:</h2>
-                <div>
-                    <div class="modal-radios">
-                        <input type="radio" name="colorInventory">
-                        <label for="colorInventory">Estoque com mercadorias disponíveis</label>
-                    </div>
-                    <div class="modal-radios">
-                        <input type="radio" name="colorInventory">
-                        <label for="colorInventory">Estoque com mercadorias faltantes</label>
-                    </div>
+    </div>
+    <div id="modal-inventory" class="hide">
+        <div class="modal-supplier-container">
+            <h2>Selecione o tipo de estoque:</h2>
+            <div>
+                <div class="modal-radios">
+                    <input type="radio" name="colorInventory">
+                    <label for="colorInventory">Estoque com mercadorias disponíveis</label>
                 </div>
-                <div class="modal-supplier-buttons">
-                    <button id="buttonCloseModalInventory">Fechar</button>
-                    <button id="buttonOkModalInventory">Ok</button>
+                <div class="modal-radios">
+                    <input type="radio" name="colorInventory">
+                    <label for="colorInventory">Estoque com mercadorias faltantes</label>
                 </div>
             </div>
-        </div>
-        <div id="modal-newNfe" class="hide">
-            <div class="modal-supplier-container">
-                <h2>Incluir nova Nfe de Entrada</h2>
-                <div class="bloco">
-                    <div>
-                        <label >Produto:</label>
-                        <input type="text" name="bloco1">
-                    </div>
-                    <div>
-                        <label >Fornecedor:</label>
-                        <input type="text" name="bloco1">
-                    </div>
-                    <div>
-                        <label >SKU:</label>
-                        <input type="text" name="bloco1">
-                    </div>
-                </div>
-                <div class="bloco">
-                    <div>
-                        <label >Data de entrada:</label>
-                        <input type="date" name="bloco2">
-                    </div>
-                    <div>
-                        <label >Estoque inicial:</label>
-                        <input type="text" name="bloco2">
-                    </div>
-                    <div>
-                        <label >Estoque atual:</label>
-                        <input type="text" name="bloco2">
-                    </div>
-                </div>
-                <div class="bloco">
-                    <div>
-                        <label >Número da nota fiscal:</label>
-                        <input type="text" name="bloco3">
-                    </div>
-                    <div>
-                        <label>Cor:</label>
-                        <select name="bloco3">
-                            <option value="">Teste</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Categoria:</label>
-                        <select name="bloco3">
-                            <option value="">Teste</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="radios">
-                    <input type="radio" name="status" id="ativo">Ativo
-                    <input type="radio" name="status" id="inativo">Inativo
-                </div>
-                <div class="bloco">
-                    <button id="buttonCloseModalNewNfe">Fechar</button>
-                    <button id="buttonOkModalNewNfe">Ok</button>
-                </div>
+            <div class="modal-supplier-buttons">
+                <button id="buttonCloseModalInventory">Fechar</button>
+                <button id="buttonOkModalInventory">Ok</button>
             </div>
         </div>
-
     </div>
 
-
+    <div id="modal-newNfe" class="hide">
+        <div class="modal-supplier-container">
+            <h2>Nova nota fiscal de entrada</h2>
+            <div class="modal-blocos">
+                <div class="bloco">
+                    <label>Produto</label>
+                    <input type="text" name="newNfeInput" id="product">
+                    <label>Fornecedor</label>
+                    <input type="text" name="newNfeInput" id="supplier">
+                    <label>Sku</label>
+                    <input type="text" name="newNfeInput" id="sku">
+                    <label>Data de entrada</label>
+                    <input type="date" name="newNfeInput" id="dateEntry">
+                    <label>Estoque inicial</label>
+                    <input type="text" name="newNfeInput" id="inventoryBegin">
+                </div>
+                <div class="bloco">
+                    <label>Estoque Atual</label>
+                    <input type="text" name="newNfeInput" id="inventoryCurrent">
+                    <label>Número da nota fiscal</label>
+                    <input type="text" name="newNfeInput" id="numberInvoice">
+                    <label>Cor</label>
+                    <select name="newNfeInput" id="selectColor"></select>
+                    <label>Categoria</label>
+                    <select name="newNfeInput" id="selectCategorie"></select>
+                    <label>Status</label>
+                    <select name="newNfeInput" id="selectStatus">
+                        <option value="ativo">Ativo</option>
+                        <option value="ativo">Inativo</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="modal-newnfe-buttons">
+            <button id="buttonCloseModalNewNfe">Fechar</button>
+            <button id="buttonOkModalNewNfe">Ok</button>
+        </div>
+    </div>
 
     <main class="container">
         <div class="container-title">
@@ -126,7 +102,7 @@
         </div>
         <div class="container-filters">
             <div class="container-filters-buttons">
-                <label >Filtrar por:</label>
+                <label>Filtrar por:</label>
                 <button id="buttonSupplier">Fornecedor</button>
                 <button id="buttonDate">Data</button>
                 <button id="buttonInventory">Estoque</button>

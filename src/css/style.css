@@ -29,7 +29,7 @@ body {
   pointer-events: all;
 }
 
-#modal-supplier, #modal-inventory, #modal-dates {
+#modal-supplier, #modal-newNfe, #modal-inventory, #modal-dates {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -41,13 +41,13 @@ body {
   border-radius: 0.5rem;
   z-index: 10;
 }
-#modal-supplier .modal-supplier-container, #modal-inventory .modal-supplier-container, #modal-dates .modal-supplier-container {
+#modal-supplier .modal-supplier-container, #modal-newNfe .modal-supplier-container, #modal-inventory .modal-supplier-container, #modal-dates .modal-supplier-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 }
-#modal-supplier .modal-supplier-container select, #modal-inventory .modal-supplier-container select, #modal-dates .modal-supplier-container select {
+#modal-supplier .modal-supplier-container select, #modal-newNfe .modal-supplier-container select, #modal-inventory .modal-supplier-container select, #modal-dates .modal-supplier-container select {
   width: 50%;
   height: 2rem;
   outline: none;
@@ -56,7 +56,7 @@ body {
   font-family: "Fira Sans", sans-serif;
   font-size: 15px;
 }
-#modal-supplier .modal-supplier-container .modal-supplier-buttons, #modal-inventory .modal-supplier-container .modal-supplier-buttons, #modal-dates .modal-supplier-container .modal-supplier-buttons {
+#modal-supplier .modal-supplier-container .modal-supplier-buttons, #modal-newNfe .modal-supplier-container .modal-supplier-buttons, #modal-inventory .modal-supplier-container .modal-supplier-buttons, #modal-dates .modal-supplier-container .modal-supplier-buttons {
   display: flex;
   gap: 280px;
 }
@@ -94,57 +94,52 @@ body {
   padding: 5px;
 }
 #modal-newNfe {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 900px;
-  max-width: 90%;
-  background-color: #fff;
-  padding: 1.2rem;
-  border-radius: 0.5rem;
-  z-index: 10;
+  min-height: 500px;
+  min-width: 800px !important;
 }
 #modal-newNfe #modal-newNfe.hide {
   opacity: 0;
   pointer-events: none;
 }
-#modal-newNfe .bloco {
+#modal-newNfe .modal-supplier-container .modal-blocos {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
-  gap: 5px;
+  gap: 30px;
 }
-#modal-newNfe .bloco input {
-  width: 10rem;
-  height: 1.5rem;
-  font-family: "Fira Sans", sans-serif;
-  border-radius: 3px;
-  border: 1px solid black;
-  outline: none;
-  text-align: center;
-}
-#modal-newNfe .bloco select {
-  width: 10rem;
-  height: 1.5rem;
-  font-family: "Fira Sans", sans-serif;
-  font-size: 15px;
-  border-radius: 3px;
-  border: 1px solid black;
-}
-#modal-newNfe .radios {
+#modal-newNfe .modal-supplier-container .modal-blocos .bloco {
   display: flex;
-  margin-top: 20px;
+  flex-direction: column;
   gap: 10px;
 }
-
-#modal-supplier.hide, .hide#modal-dates, .hide#modal-inventory,
+#modal-newNfe .modal-supplier-container .modal-blocos .bloco input {
+  width: 18rem;
+  outline: none;
+  border: 1px solid black;
+  height: 1.8rem;
+  text-align: center;
+  font-family: "Fira Sans", sans-serif;
+  border-radius: 5px;
+}
+#modal-newNfe .modal-supplier-container .modal-blocos .bloco select {
+  width: 18rem;
+  outline: none;
+  border: 1px solid black;
+  height: 1.8rem;
+  font-family: "Fira Sans", sans-serif;
+  border-radius: 5px;
+}
+#modal-newNfe .modal-newnfe-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#modal-supplier.hide, .hide#modal-dates, .hide#modal-inventory, .hide#modal-newNfe,
 #fade.hide {
   opacity: 0;
   pointer-events: none;
 }
 
-.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button, #modal-supplier .modal-supplier-container .modal-supplier-buttons button, #modal-dates .modal-supplier-container .modal-supplier-buttons button, #modal-dates button, #modal-inventory .modal-supplier-container .modal-supplier-buttons button, #modal-inventory button, #modal-newNfe .bloco button {
+.button, .footer button, .container-filters .container-filters-search button, .container-filters .container-filters-buttons button:hover, .container-filters .container-filters-buttons button, #modal-supplier .modal-supplier-container .modal-supplier-buttons button, #modal-dates .modal-supplier-container .modal-supplier-buttons button, #modal-dates button, #modal-inventory .modal-supplier-container .modal-supplier-buttons button, #modal-inventory button, #modal-newNfe .modal-supplier-container .modal-supplier-buttons button, #modal-newNfe .modal-newnfe-buttons button {
   cursor: pointer;
   font-family: "Fira Sans", sans-serif;
   font-weight: 600;
@@ -156,7 +151,7 @@ body {
   transition: 0.5s;
 }
 
-.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover, #modal-supplier .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates button:hover, #modal-inventory .modal-supplier-container .modal-supplier-buttons button:hover, #modal-inventory button:hover, #modal-newNfe .bloco button:hover {
+.button:hover, .footer button:hover, .container-filters .container-filters-search button:hover, .container-filters .container-filters-buttons button:hover, #modal-supplier .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates .modal-supplier-container .modal-supplier-buttons button:hover, #modal-dates button:hover, #modal-inventory .modal-supplier-container .modal-supplier-buttons button:hover, #modal-inventory button:hover, #modal-newNfe .modal-supplier-container .modal-supplier-buttons button:hover, #modal-newNfe .modal-newnfe-buttons button:hover {
   background-color: #103778;
   color: white;
 }
