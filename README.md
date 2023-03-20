@@ -20,7 +20,7 @@ Essas são algumas tecnologias:
 - SASS
 - Git
 
-![N|Solid](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2QzYzU0YWYxNTU2MmQyZTIyNGI0OTkyMzkzNDRlYzkxNzE4MTJkMyZjdD1n/1ARZlBenfONXq7Gz93/giphy.gif)
+![N|Solid](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGNkNDcwMTdjYTVjNjYwODNjMzdiMDRlZThhMzk2ODcxMGJlODY0ZiZjdD1n/YtaOa3aKvASIw4qaTW/giphy.gif)
 
 
 
