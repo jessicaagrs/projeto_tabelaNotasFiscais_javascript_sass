@@ -7,7 +7,7 @@ A tabela de notas fiscais possibilita fazer filtros por produtos, fornecedor, da
 
 ## Como visualizar
 
-Acesse https://jessicaagrs.github.io/projeto_listaDeCompras_javascript_sass/
+Acesse https://jessicaagrs.github.io/projeto_tabelaNotasFiscais_javascript_sass/
 
 ## Tecnologias Utilizadas
 
