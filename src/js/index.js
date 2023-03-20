@@ -23,6 +23,7 @@ const buttonCloseModalNewNfe = document.querySelector('#buttonCloseModalNewNfe')
 const buttonOkModalNewNfe = document.getElementById('buttonOkModalNewNfe')
 const buttonAddNfe = document.getElementById('buttonAdd')
 const modalNfe = document.querySelector('#modal-newNfe')
+const savePdf = document.getElementById("buttonPdf")
 
 let indiceUltimaLinhaCarregada = 100;
 let sizeLoad = 100
@@ -477,6 +478,15 @@ function createOptionsSelectCategorie() {
     });
 
 }
+
+savePdf.addEventListener('click', () => {
+    var myTable = table.outerHTML
+    var win = window.open('', '', 'height=700,width=700')
+   
+    win.document.write(myTable)                          
+    win.document.close(); 	                                        
+    win.print()
+})
 
 
 
