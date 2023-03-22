@@ -69,7 +69,7 @@ body {
   gap: 15px;
 }
 #modal-dates .modal-date input {
-  width: 10rem;
+  width: 8.5rem;
   height: 2rem;
   text-align: center;
   border: 1px solid black;
@@ -234,7 +234,9 @@ body {
   width: 300px;
   font: 17px Calibri;
 }
-.print table, .print th, .print td {
+.print table,
+.print th,
+.print td {
   border: solid 1px #DDD;
   border-collapse: collapse;
   padding: 2px 3px;
@@ -245,6 +247,31 @@ body {
   .container-filters {
     flex-direction: column;
     gap: 20px;
+  }
+}
+@media (max-width: 689px) {
+  #modal-newNfe {
+    min-height: 500px;
+    min-width: 650px !important;
+  }
+}
+@media (max-width: 415px) {
+  .modal-supplier-buttons {
+    display: block;
+  }
+  .modal-supplier-buttons #buttonCloseModalSupplier,
+  .modal-supplier-buttons #buttonCloseModalDate,
+  .modal-supplier-buttons #buttonCloseModalInventory {
+    margin-right: -150px;
+  }
+  #modal-newNfe {
+    min-width: 300px !important;
+  }
+  #modal-newNfe .modal-supplier-container .modal-blocos .bloco input {
+    width: 8rem;
+  }
+  #modal-newNfe .modal-supplier-container .modal-blocos .bloco select {
+    width: 8rem;
   }
 }
 

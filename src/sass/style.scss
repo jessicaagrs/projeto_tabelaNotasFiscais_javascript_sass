@@ -92,7 +92,7 @@ body {
         gap: 15px;
 
         input {
-            width: 10rem;
+            width: 8.5rem;
             height: 2rem;
             text-align: center;
             border: 1px solid black;
@@ -320,13 +320,14 @@ body {
 }
 
 .print {
-    table
-    {
+    table {
         width: 300px;
         font: 17px Calibri;
     }
-    table, th, td 
-    {
+
+    table,
+    th,
+    td {
         border: solid 1px #DDD;
         border-collapse: collapse;
         padding: 2px 3px;
@@ -335,8 +336,49 @@ body {
 }
 
 @media (max-width: 852px) {
-    .container-filters{
+    .container-filters {
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+@media (max-width: 689px) {
+    #modal-newNfe {
+        @extend #modal-supplier;
+        min-height: 500px;
+        min-width: 650px !important;
+    }
+}
+
+@media (max-width: 415px) {
+    .modal-supplier-buttons {
+        display: block;
+
+        #buttonCloseModalSupplier,
+        #buttonCloseModalDate,
+        #buttonCloseModalInventory {
+            margin-right: -150px;
+        }
+    }
+
+    #modal-newNfe {
+        min-width: 300px !important;
+
+        .modal-supplier-container {
+            .modal-blocos {
+                .bloco {
+
+                    input {
+                        width: 8rem;
+
+                    }
+
+                    select {
+                        width: 8rem;
+
+                    }
+                }
+            }
+        }
     }
 }
