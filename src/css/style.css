@@ -230,4 +230,22 @@ body {
   color: white;
 }
 
+.print table {
+  width: 300px;
+  font: 17px Calibri;
+}
+.print table, .print th, .print td {
+  border: solid 1px #DDD;
+  border-collapse: collapse;
+  padding: 2px 3px;
+  text-align: center;
+}
+
+@media (max-width: 852px) {
+  .container-filters {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

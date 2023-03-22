@@ -437,7 +437,12 @@ function addNewNfe(oEvent) {
     let newNfeInputs = Array.from(document.getElementsByName('newNfeInput'))
     newNfeInputs.reverse()
     let row = table.insertRow(0)
-    debugger
+
+    const findEmptyInput = newNfeInputs.some(x => x.value == "")
+    if (findEmptyInput) {
+        alert("Todos os campos devem ser preenchidos.")
+        return
+    }
 
     for (let i = 0; i < newNfeInputs.length; i++) {
         let cell = row.insertCell(0)
@@ -446,11 +451,16 @@ function addNewNfe(oEvent) {
     }
 
     table.prepend(row)
-    colorCurrentInventory()
-    colorStatusProduct()
+    clearInputsNewNfe(newNfeInputs)
     fadeModal.classList.add("hide")
     modalNfe.classList.add("hide")
 
+}
+
+function clearInputsNewNfe(inputs) {
+    inputs.forEach(element => {
+        element.value = ""
+    });
 }
 
 buttonOkModalNewNfe.addEventListener('click', addNewNfe)
@@ -480,12 +490,32 @@ function createOptionsSelectCategorie() {
 }
 
 savePdf.addEventListener('click', () => {
-    var myTable = table.outerHTML
-    var win = window.open('', '', 'height=700,width=700')
-   
-    win.document.write(myTable)                          
-    win.document.close(); 	                                        
-    win.print()
+    let table = document.getElementById("table");
+    let tableHeight = table.clientHeight;
+    let pageHeight = 270; // maximum height per page in mm
+    let totalPages = Math.ceil(tableHeight / pageHeight);
+
+    html2canvas(table).then(function (canvas) {
+        let imgData = canvas.toDataURL('image/png');
+        let pdf = new jsPDF('l', 'mm', 'a3');
+        let posY = 0;
+
+        for (let i = 1; i <= totalPages; i++) {
+            if (i > 1) {
+                pdf.addPage();
+            }
+            let remainingHeight = tableHeight - (i - 1) * pageHeight;
+            let imgHeight = remainingHeight < pageHeight ? remainingHeight / tableHeight * pageHeight : 0;
+            let imgWidth = 420 - 20;
+            let xPos = 10;
+            let yPos = posY + 10;
+
+            pdf.addImage(imgData, 'PNG', xPos, yPos, imgWidth, imgHeight, '', 'FAST');
+            posY -= pageHeight - (imgHeight > 0 ? 20 : 0);
+        }
+
+        pdf.save("table.pdf");
+    });
 })
 
 

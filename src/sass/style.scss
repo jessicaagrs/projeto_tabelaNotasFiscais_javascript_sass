@@ -333,3 +333,10 @@ body {
         text-align: center;
     }
 }
+
+@media (max-width: 852px) {
+    .container-filters{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
