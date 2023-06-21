@@ -61,26 +61,12 @@ Liste todas as dependencias e libs que o usuário deve ter instalado na máquina
 
 ## Como rodar a aplicação :arrow_forward:
 
-No terminal(abaixo como abri-lo dependendo do seu sistema operacional no seu computador), clone o projeto: 
+No terminal clone o projeto: 
 
 ```
 git clone https://github.com/jessicaagrs/projeto_tabelaNotasFiscais_javascript_sass.git
 
 ```
-Linux:
-
-- Ctrl + Alt + T: este atalho abre o terminal em muitas distribuições Linux, como Ubuntu, Debian e Fedora.
-
-macOS:
-
-- Command + Espaço: este atalho abre o Spotlight, que permite pesquisar e abrir o Terminal digitando "Terminal" na caixa de pesquisa.
-- Ou, pressione Command + Shift + U para abrir a pasta Utilitários, e depois clique em Terminal para abrir o aplicativo.
-
-Windows:
-
-- Windows Key + R: este atalho abre a janela "Executar". Digite "cmd" na caixa de texto e pressione Enter para abrir o prompt de comando.
-- Ou, clique no botão Iniciar, digite "prompt de comando" na caixa de pesquisa e selecione o aplicativo Prompt de Comando nos resultados da pesquisa.
-
 
 > Link para execução do projeto no browser: https://jessicaagrs.github.io/projeto_tabelaNotasFiscais_javascript_sass/
 
