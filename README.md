@@ -8,7 +8,7 @@
   <img src="https://uploaddeimagens.com.br/images/004/413/687/full/html.png?1680281627"/>
 </p>
 
-Status do Projeto: :warning: <!-- > :heavy_check_mark:--> Em andamento
+Status do Projeto:  :heavy_check_mark: Concluído
 
 ### Tópicos 
 
