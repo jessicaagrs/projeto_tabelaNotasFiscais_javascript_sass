@@ -68,7 +68,7 @@ git clone https://github.com/jessicaagrs/projeto_tabelaNotasFiscais_javascript_s
 
 ```
 
-> Link para execução do projeto no browser: https://jessicaagrs.github.io/projeto_tabelaNotasFiscais_javascript_sass/
+> Link para execução do projeto no browser: https://jessicaagrs.github.io/frontend_projetoTabelaNotasFiscais/
 
 <!-- ## Como rodar os testes
 
